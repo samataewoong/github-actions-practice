@@ -16,6 +16,7 @@ jobs:
           script_stop: true
           script: |
             cd /home/ubuntu/github-actions-practice
+            git config pull.rebase false
             git pull origin main
             sudo fuser -k -n tcp 8081 || true
             nohup java -jar *.jar > ./output.log 2>&1 &
